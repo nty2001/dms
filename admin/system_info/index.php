@@ -118,7 +118,7 @@
             dataType:"json",
             error:err=>{
                 console.log(err)
-                alert_toast("An error occured while deleting an Image","error");
+                alert_toast("Đã xảy ra lỗi while deleting an Image","error");
                 end_loader()
             },
             success:function(resp){
@@ -130,7 +130,7 @@
                     alert_toast("Image Successfully Deleted","success");
                 }else{
                     console.log(resp)
-                    alert_toast("An error occured while deleting an Image","error");
+                    alert_toast("Đã xảy ra lỗi while deleting an Image","error");
                 }
                 end_loader()
             }
@@ -138,7 +138,7 @@
     }
 	$(document).ready(function(){
 		$('.rem_img').click(function(){
-            _conf("Are sure to delete this image permanently?",'delete_img',["'"+$(this).attr('data-path')+"'"])
+            _conf("Có chắc chắn để xóa hình ảnh này vĩnh viễn?",'delete_img',["'"+$(this).attr('data-path')+"'"])
         })
 		 $('.summernote').summernote({
 		        height: 200,

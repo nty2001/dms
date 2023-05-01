@@ -9,7 +9,8 @@ if(isset($_GET['id']) && $_GET['id'] > 0){
 }
 ?>
 <div class="mx-0 py-5 px-3 mx-ns-4 bg-gradient-maroon">
-	<h3><b><?= isset($id) ? "Update Accounts Details" : "Create New Accounts" ?></b></h3>
+	<h3><b><?= isset($id) ? "
+Cập nhật chi tiết tài khoản" : "Tạo tài khoản mới" ?></b></h3>
 </div>
 <div class="row justify-content-center" style="margin-top:-2em;">
 	<div class="col-lg-11 col-md-11 col-sm-12 col-xs-12">
@@ -22,7 +23,7 @@ if(isset($_GET['id']) && $_GET['id'] > 0){
 							<div class="row">
 								<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
 									<div class="form-group">
-										<label for="student_id" class="control-label">Student</label>
+										<label for="student_id" class="control-label">Sinh viên</label>
 										<?php if(!isset($id)): ?>
 											<select type="text" class="form-control form-control-sm rounded-0" name="student_id" id="student_id">
 												<option value="" selected disabled></option>
@@ -41,7 +42,7 @@ if(isset($_GET['id']) && $_GET['id'] > 0){
 								</div>
 								<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
 									<div class="form-group">
-										<label for="room_id" class="control-label">Room</label>
+										<label for="room_id" class="control-label">Phòng</label>
 										<select type="text" class="form-control form-control-sm rounded-0" name="room_id" id="room_id">
 											<option value="" selected disabled></option>
 											<?php 
@@ -57,13 +58,13 @@ if(isset($_GET['id']) && $_GET['id'] > 0){
 							<div class="row">
 								<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
 									<div class="form-group">
-										<label for="rate" class="control-label">Monthly Rate</label>
+										<label for="rate" class="control-label">Tiền hàng tháng</label>
 										<input type="number" step="any" minimum="" id="rate" name="rate" class="form-control form-control-sm rounded-0 text-right" value="<?= isset($rate) ? $rate : 0 ?>" required>
 									</div>
 								</div>
 								<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
 									<div class="form-group">
-										<label for="status" class="control-label">Status</label>
+										<label for="status" class="control-label">Trạng thái</label>
 										<select name="status" id="status" class="form-control form-control-sm rounded-0" required>
 											<option value="1" <?php echo isset($status) && $status == 1 ? 'selected' : '' ?>>Hoạt động</option>
 											<option value="0" <?php echo isset($status) && $status == 0 ? 'selected' : '' ?>>Không hoạt động</option>
@@ -76,8 +77,8 @@ if(isset($_GET['id']) && $_GET['id'] > 0){
 				</div>
 			</div>
 			<div class="card-footer py-1 text-center">
-				<button class="btn btn-primary btn-sm bg-gradient-maroon rounded-0" form="accounts-form"><i class="fa fa-save"></i> Save</button>
-				<a class="btn btn-light btn-sm bg-gradient-light border rounded-0" href="./?page=accounts"><i class="fa fa-angle-left"></i> Cancel</a>
+				<button class="btn btn-primary btn-sm bg-gradient-maroon rounded-0" form="accounts-form"><i class="fa fa-save"></i> Lưu</button>
+				<a class="btn btn-light btn-sm bg-gradient-light border rounded-0" href="./?page=accounts"><i class="fa fa-angle-left"></i> Hủy bỏ</a>
 			</div>
 		</div>
 	</div>
@@ -100,12 +101,12 @@ if(isset($_GET['id']) && $_GET['id'] > 0){
 <script>
 	$(document).ready(function(){
 		$('#student_id').select2({
-			placeholder:"Please Select Student Here",
+			placeholder:"Vui Lòng Chọn Sinh Viên Tại Đây",
 			width:"100%",
 			containerCssClass:'form-control form-control-sm rounded-0'
 		})
 		$('#room_id').select2({
-			placeholder:"Please Select Room Here",
+			placeholder:"Vui Lòng Chọn Phòng Ở Đây",
 			width:"100%",
 			containerCssClass:'form-control form-control-sm rounded-0'
 		}).change(function(){
@@ -129,7 +130,7 @@ if(isset($_GET['id']) && $_GET['id'] > 0){
                 dataType: 'json',
 				error:err=>{
 					console.log(err)
-					alert_toast("An error occured",'error');
+					alert_toast("Đã xảy ra lỗi",'error');
 					end_loader();
 				},
 				success:function(resp){
@@ -143,7 +144,7 @@ if(isset($_GET['id']) && $_GET['id'] > 0){
                             $("html, body, .modal").scrollTop(0)
                             end_loader()
                     }else{
-						alert_toast("An error occured",'error');
+						alert_toast("Đã xảy ra lỗi",'error');
 						end_loader();
                         console.log(resp)
 					}

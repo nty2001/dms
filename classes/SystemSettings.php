@@ -54,14 +54,14 @@ class SystemSettings extends DBConnection{
 			$fname = "uploads/logo.png";
 			$accept = array('image/jpeg','image/png');
 			if(!in_array($_FILES['img']['type'],$accept)){
-				$err = "Image file type is invalid";
+				$err = "Loại tệp ảnh không hợp lệ";
 			}
 			if($_FILES['img']['type'] == 'image/jpeg')
 				$uploadfile = imagecreatefromjpeg($_FILES['img']['tmp_name']);
 			elseif($_FILES['img']['type'] == 'image/png')
 				$uploadfile = imagecreatefrompng($_FILES['img']['tmp_name']);
 			if(!$uploadfile){
-				$err = "Image is invalid";
+				$err = "Hình ảnh không hợp lệ";
 			}
 			$uploadfile = imagescale($uploadfile, 200, 200);
 			$temp = imagecreatetruecolor(200,200);
@@ -90,14 +90,14 @@ class SystemSettings extends DBConnection{
 			$fname = "uploads/cover.png";
 			$accept = array('image/jpeg','image/png');
 			if(!in_array($_FILES['cover']['type'],$accept)){
-				$err = "Image file type is invalid";
+				$err = "Loại tệp ảnh không hợp lệ";
 			}
 			if($_FILES['cover']['type'] == 'image/jpeg')
 				$uploadfile = imagecreatefromjpeg($_FILES['cover']['tmp_name']);
 			elseif($_FILES['cover']['type'] == 'image/png')
 				$uploadfile = imagecreatefrompng($_FILES['cover']['tmp_name']);
 			if(!$uploadfile){
-				$err = "Image is invalid";
+				$err = "Hình ảnh không hợp lệ";
 			}
 			list($width,$height) = getimagesize($_FILES['cover']['tmp_name']);
 			$temp = imagescale($uploadfile,$width,$height);
@@ -121,7 +121,7 @@ class SystemSettings extends DBConnection{
 				if(!empty($_FILES['banners']['tmp_name'][$k])){
 					$accept = array('image/jpeg','image/png');
 					if(!in_array($_FILES['banners']['type'][$k],$accept)){
-						$err = "Image file type is invalid";
+						$err = "Loại tệp ảnh không hợp lệ";
 						break;
 					}
 					if($_FILES['banners']['type'][$k] == 'image/jpeg')
@@ -129,7 +129,7 @@ class SystemSettings extends DBConnection{
 					elseif($_FILES['banners']['type'][$k] == 'image/png')
 						$uploadfile = imagecreatefrompng($_FILES['banners']['tmp_name'][$k]);
 					if(!$uploadfile){
-						$err = "Image is invalid";
+						$err = "Hình ảnh không hợp lệ";
 						break;
 					}
 					list($width, $height) =getimagesize($_FILES['banners']['tmp_name'][$k]);
@@ -169,7 +169,7 @@ class SystemSettings extends DBConnection{
 		}
 		
 		$update = $this->update_system_info();
-		$flash = $this->set_flashdata('success','System Info Successfully Updated.');
+		$flash = $this->set_flashdata('success','Thông tin hệ thống được cập nhật thành công.');
 		if($update && $flash){
 			// var_dump($_SESSION);
 			$resp['status'] = 'success';

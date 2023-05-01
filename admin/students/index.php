@@ -79,7 +79,7 @@
 <script>
 	$(document).ready(function(){
 		$('.delete_data').click(function(){
-			_conf("Are you sure to delete Student [<b>"+$(this).attr('data-code')+"</b>] permanently?","delete_student",[$(this).attr('data-id')])
+			_conf("Bạn có chắc chắn xóa Sinh viên [<b>"+$(this).attr('data-code')+"</b>] vĩnh viễn?","delete_student",[$(this).attr('data-id')])
 		})
 		$('.table').dataTable({
 			columnDefs: [
@@ -98,14 +98,14 @@
 			dataType:"json",
 			error:err=>{
 				console.log(err)
-				alert_toast("An error occured.",'error');
+				alert_toast("Đã xảy ra lỗi.",'error');
 				end_loader();
 			},
 			success:function(resp){
 				if(typeof resp== 'object' && resp.status == 'success'){
 					location.reload();
 				}else{
-					alert_toast("An error occured.",'error');
+					alert_toast("Đã xảy ra lỗi.",'error');
 					end_loader();
 				}
 			}

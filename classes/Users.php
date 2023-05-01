@@ -27,7 +27,7 @@ Class Users extends DBConnection {
 			$qry = $this->conn->query("INSERT INTO users set {$data}");
 			if($qry){
 				$id=$this->conn->insert_id;
-				$this->settings->set_flashdata('success','User Details successfully saved.');
+				$this->settings->set_flashdata('success','Chi tiết người dùng đã được lưu thành công.');
 				foreach($_POST as $k => $v){
 					if($k != 'id'){
 						if(!empty($data)) $data .=" , ";
@@ -42,14 +42,14 @@ Class Users extends DBConnection {
 					$fname = "uploads/avatars/$id.png";
 					$accept = array('image/jpeg','image/png');
 					if(!in_array($_FILES['img']['type'],$accept)){
-						$err = "Image file type is invalid";
+						$err = "Loại tệp ảnh không hợp lệ";
 					}
 					if($_FILES['img']['type'] == 'image/jpeg')
 						$uploadfile = imagecreatefromjpeg($_FILES['img']['tmp_name']);
 					elseif($_FILES['img']['type'] == 'image/png')
 						$uploadfile = imagecreatefrompng($_FILES['img']['tmp_name']);
 					if(!$uploadfile){
-						$err = "Image is invalid";
+						$err = "Hình ảnh không hợp lệ";
 					}
 					$temp = imagescale($uploadfile,200,200);
 					if(is_file(base_app.$fname))
@@ -71,7 +71,7 @@ Class Users extends DBConnection {
 		}else{
 			$qry = $this->conn->query("UPDATE users set $data where id = {$id}");
 			if($qry){
-				$this->settings->set_flashdata('success','User Details successfully updated.');
+				$this->settings->set_flashdata('success','Chi tiết người dùng được cập nhật thành công.');
 				foreach($_POST as $k => $v){
 					if($k != 'id'){
 						if(!empty($data)) $data .=" , ";
@@ -86,14 +86,14 @@ Class Users extends DBConnection {
 					$fname = "uploads/avatars/$id.png";
 					$accept = array('image/jpeg','image/png');
 					if(!in_array($_FILES['img']['type'],$accept)){
-						$err = "Image file type is invalid";
+						$err = "Loại tệp ảnh không hợp lệ";
 					}
 					if($_FILES['img']['type'] == 'image/jpeg')
 						$uploadfile = imagecreatefromjpeg($_FILES['img']['tmp_name']);
 					elseif($_FILES['img']['type'] == 'image/png')
 						$uploadfile = imagecreatefrompng($_FILES['img']['tmp_name']);
 					if(!$uploadfile){
-						$err = "Image is invalid";
+						$err = "Hình ảnh không hợp lệ";
 					}
 					$temp = imagescale($uploadfile,200,200);
 					if(is_file(base_app.$fname))
@@ -119,7 +119,7 @@ Class Users extends DBConnection {
 		extract($_POST);
 		$qry = $this->conn->query("DELETE FROM users where id = $id");
 		if($qry){
-			$this->settings->set_flashdata('success','User Details successfully deleted.');
+			$this->settings->set_flashdata('success','Chi tiết người dùng đã được xóa thành công.');
 			if(is_file(base_app."uploads/avatars/$id.png"))
 				unlink(base_app."uploads/avatars/$id.png");
 			return 1;
@@ -144,7 +144,7 @@ Class Users extends DBConnection {
 			$qry = $this->conn->query("INSERT INTO individual_list set {$data}");
 			if($qry){
 				$id=$this->conn->insert_id;
-				$this->settings->set_flashdata('success','User Details successfully saved.');
+				$this->settings->set_flashdata('success','Chi tiết người dùng đã được lưu thành công.');
 				foreach($_POST as $k => $v){
 					if($k != 'id'){
 						if(!empty($data)) $data .=" , ";
@@ -159,14 +159,14 @@ Class Users extends DBConnection {
 					$fname = "uploads/individual/$id.png";
 					$accept = array('image/jpeg','image/png');
 					if(!in_array($_FILES['img']['type'],$accept)){
-						$err = "Image file type is invalid";
+						$err = "Loại tệp ảnh không hợp lệ";
 					}
 					if($_FILES['img']['type'] == 'image/jpeg')
 						$uploadfile = imagecreatefromjpeg($_FILES['img']['tmp_name']);
 					elseif($_FILES['img']['type'] == 'image/png')
 						$uploadfile = imagecreatefrompng($_FILES['img']['tmp_name']);
 					if(!$uploadfile){
-						$err = "Image is invalid";
+						$err = "Hình ảnh không hợp lệ";
 					}
 					$temp = imagescale($uploadfile,200,200);
 					if(is_file(base_app.$fname))
@@ -188,7 +188,7 @@ Class Users extends DBConnection {
 		}else{
 			$qry = $this->conn->query("UPDATE individual_list set $data where id = {$id}");
 			if($qry){
-				$this->settings->set_flashdata('success','User Details successfully updated.');
+				$this->settings->set_flashdata('success','Chi tiết người dùng được cập nhật thành công.');
 				foreach($_POST as $k => $v){
 					if($k != 'id'){
 						if(!empty($data)) $data .=" , ";
@@ -203,14 +203,14 @@ Class Users extends DBConnection {
 					$fname = "uploads/individual/$id.png";
 					$accept = array('image/jpeg','image/png');
 					if(!in_array($_FILES['img']['type'],$accept)){
-						$err = "Image file type is invalid";
+						$err = "Loại tệp ảnh không hợp lệ";
 					}
 					if($_FILES['img']['type'] == 'image/jpeg')
 						$uploadfile = imagecreatefromjpeg($_FILES['img']['tmp_name']);
 					elseif($_FILES['img']['type'] == 'image/png')
 						$uploadfile = imagecreatefrompng($_FILES['img']['tmp_name']);
 					if(!$uploadfile){
-						$err = "Image is invalid";
+						$err = "Hình ảnh không hợp lệ";
 					}
 					$temp = imagescale($uploadfile,200,200);
 					if(is_file(base_app.$fname))
@@ -251,7 +251,7 @@ Class Users extends DBConnection {
 		$check = $this->conn->query("SELECT * FROM `individual_list` where email = '{$email}' ".($id > 0 ? " and id!='{$id}'" : "")." ")->num_rows;
 		if($check > 0){
 			$resp['status'] = 'failed';
-			$resp['msg'] = 'Email already exists.';
+			$resp['msg'] = 'Email đã tồn tại.';
 			return json_encode($resp);
 		}
 		foreach($_POST as $k => $v){
@@ -271,9 +271,9 @@ Class Users extends DBConnection {
 			$uid = !empty($id) ? $id : $this->conn->insert_id;
 			$resp['status'] = 'success';
 			if(!empty($id))
-				$resp['msg'] = 'User Details has been updated successfully';
+				$resp['msg'] = 'Chi tiết người dùng đã được cập nhật thành công';
 			else
-				$resp['msg'] = 'Your Account has been created successfully';
+				$resp['msg'] = 'Tài khoản của bạn đã được tạo thành công';
 
 			if(!empty($_FILES['img']['tmp_name'])){
 				if(!is_dir(base_app."uploads/individual"))
@@ -282,14 +282,14 @@ Class Users extends DBConnection {
 				$fname = "uploads/individual/$uid.png";
 				$accept = array('image/jpeg','image/png');
 				if(!in_array($_FILES['img']['type'],$accept)){
-					$resp['msg'] = "Image file type is invalid";
+					$resp['msg'] = "Loại tệp hình ảnh không hợp lệ";
 				}
 				if($_FILES['img']['type'] == 'image/jpeg')
 					$uploadfile = imagecreatefromjpeg($_FILES['img']['tmp_name']);
 				elseif($_FILES['img']['type'] == 'image/png')
 					$uploadfile = imagecreatefrompng($_FILES['img']['tmp_name']);
 				if(!$uploadfile){
-					$resp['msg'] = "Image is invalid";
+					$resp['msg'] = "Hình ảnh không hợp lệ";
 				}
 				$temp = imagescale($uploadfile,200,200);
 				if(is_file(base_app.$fname))
@@ -322,7 +322,7 @@ Class Users extends DBConnection {
 		$save = $this->conn->query($sql);
 		if($save){
 			$resp['status'] = 'success';
-			$resp['msg'] = "Your Information for Verification has been updated successfully";
+			$resp['msg'] = "Thông tin xác minh của bạn đã được cập nhật thành công";
 			if(isset($_FILES['vaccine_card_path']) && !empty($_FILES['vaccine_card_path']['tmp_name'])){
 				$filename = "uploads/vaccines/{$individual_id}.png";
 				if(!is_dir(base_app."uploads/vaccines/"))
@@ -374,7 +374,7 @@ Class Users extends DBConnection {
 		$update = $this->conn->query("UPDATE `individual_list` set `status` = '{$status}' where id = '{$id}' ");
 		if($update){
 			$resp['status'] = 'success';
-			$resp['msg'] = 'Individual\'s Status has been updated successfully.';
+			$resp['msg'] = 'Trạng thái của cá nhân đã được cập nhật thành công.';
 		}else{
 			$resp['status'] = 'failed';
 			$resp['msg'] = $this->conn->error;

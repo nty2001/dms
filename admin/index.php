@@ -42,8 +42,8 @@
       <div class="modal-body">
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-primary rounded-0" id='submit' onclick="$('#uni_modal form').submit()">Save</button>
-        <button type="button" class="btn btn-secondary rounded-0" data-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-primary rounded-0" id='submit' onclick="$('#uni_modal form').submit()">Lưu</button>
+        <button type="button" class="btn btn-secondary rounded-0" data-dismiss="modal">Hủy bỏ</button>
       </div>
       </div>
     </div>
@@ -74,7 +74,7 @@
     <div class="modal-dialog modal-md modal-dialog-centered" role="document">
       <div class="modal-content rounded-0">
         <div class="modal-header">
-        <h5 class="modal-title">Confirmation</h5>
+        <h5 class="modal-title">Xác nhận</h5>
       </div>
       <div class="modal-body">
         <div id="delete_content"></div>

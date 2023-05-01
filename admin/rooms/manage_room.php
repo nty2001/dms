@@ -14,7 +14,7 @@ if(isset($_GET['id']) && $_GET['id'] > 0){
 	<form action="" id="room-form">
 		<input type="hidden" name ="id" value="<?php echo isset($id) ? $id : '' ?>">
 		<div class="form-group">
-			<label for="dorm_id" class="control-label">Dorm</label>
+			<label for="dorm_id" class="control-label">Kí túc</label>
 			<select name="dorm_id" id="dorm_id" class="form-control form-control-sm rounded-0" required>
 				<option value="" disabled <?= !isset($dorm_id) ? 'selected' : "" ?>></option>
 				<?php 
@@ -26,19 +26,19 @@ if(isset($_GET['id']) && $_GET['id'] > 0){
 			</select>
 		</div>
 		<div class="form-group">
-			<label for="name" class="control-label">Name</label>
+			<label for="name" class="control-label">Tên</label>
 			<input type="text" name="name" id="name" class="form-control form-control-sm rounded-0" value="<?php echo isset($name) ? $name : ''; ?>"  required/>
 		</div>
 		<div class="form-group">
-			<label for="slots" class="control-label">Bed/s</label>
+			<label for="slots" class="control-label">Số giường</label>
 			<input type="number" min="1" name="slots" id="slots" class="form-control form-control-sm rounded-0 text-right" value="<?php echo isset($slots) ? $slots : ''; ?>"  required/>
 		</div>
 		<div class="form-group">
-			<label for="price" class="control-label">Price per Month</label>
+			<label for="price" class="control-label">Giá mỗi tháng</label>
 			<input type="number" step="any" min="0" name="price" id="price" class="form-control form-control-sm rounded-0 text-right" value="<?php echo isset($price) ? $price : 0; ?>"  required/>
 		</div>
 		<div class="form-group">
-			<label for="status" class="control-label">Status</label>
+			<label for="status" class="control-label">Trạng thái</label>
 			<select name="status" id="status" class="form-control form-control-sm rounded-0" required>
 			<option value="1" <?php echo isset($status) && $status == 1 ? 'selected' : '' ?>>Hoạt động</option>
 			<option value="0" <?php echo isset($status) && $status == 0 ? 'selected' : '' ?>>Không hoạt động</option>
@@ -71,7 +71,7 @@ if(isset($_GET['id']) && $_GET['id'] > 0){
                 dataType: 'json',
 				error:err=>{
 					console.log(err)
-					alert_toast("An error occured",'error');
+					alert_toast("Đã xảy ra lỗi",'error');
 					end_loader();
 				},
 				success:function(resp){
@@ -85,7 +85,7 @@ if(isset($_GET['id']) && $_GET['id'] > 0){
                             $("html, body, .modal").scrollTop(0)
                             end_loader()
                     }else{
-						alert_toast("An error occured",'error');
+						alert_toast("Đã xảy ra lỗi",'error');
 						end_loader();
                         console.log(resp)
 					}

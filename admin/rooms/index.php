@@ -86,16 +86,16 @@
 <script>
 	$(document).ready(function(){
 		$('.delete_data').click(function(){
-			_conf("Are you sure to delete this Room permanently?","delete_room",[$(this).attr('data-id')])
+			_conf("Bạn có chắc chắn xóa Phòng này vĩnh viễn không?","delete_room",[$(this).attr('data-id')])
 		})
 		$('#create_new').click(function(){
-			uni_modal("<i class='fa fa-plus'></i> Add New Room","rooms/manage_room.php")
+			uni_modal("<i class='fa fa-plus'></i>Thêm phòng mới","rooms/manage_room.php")
 		})
 		$('.view_data').click(function(){
 			uni_modal("<i class='fa fa-bars'></i> Room Details","rooms/view_room.php?id="+$(this).attr('data-id'))
 		})
 		$('.edit_data').click(function(){
-			uni_modal("<i class='fa fa-edit'></i> Update Room Details","rooms/manage_room.php?id="+$(this).attr('data-id'))
+			uni_modal("<i class='fa fa-edit'></i> Cập nhật chi tiết phòng","rooms/manage_room.php?id="+$(this).attr('data-id'))
 		})
 		$('.table').dataTable({
 			columnDefs: [
@@ -114,14 +114,14 @@
 			dataType:"json",
 			error:err=>{
 				console.log(err)
-				alert_toast("An error occured.",'error');
+				alert_toast("Đã xảy ra lỗi.",'error');
 				end_loader();
 			},
 			success:function(resp){
 				if(typeof resp== 'object' && resp.status == 'success'){
 					location.reload();
 				}else{
-					alert_toast("An error occured.",'error');
+					alert_toast("Đã xảy ra lỗi.",'error');
 					end_loader();
 				}
 			}

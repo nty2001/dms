@@ -48,7 +48,7 @@ Class Master extends DBConnection {
 		$check = $this->conn->query("SELECT * FROM `dorm_list` where `name` = '{$name}' and delete_flag = 0 ".($id > 0 ? " and id != '{$id}' " : '')." ")->num_rows;
 		if($check > 0){
 			$resp['status'] = 'failed';
-			$resp['msg'] = 'Dorm Name already exists.';
+			$resp['msg'] = 'Tên ký túc xá đã tồn tại.';
 			return json_encode($resp);
 		}
 		if(empty($id)){
@@ -63,9 +63,9 @@ Class Master extends DBConnection {
 			$resp['aid'] = $aid;
 
 			if(empty($id))
-				$resp['msg'] = "New Dorm successfully saved.";
+				$resp['msg'] = "Ký túc xá mới được lưu thành công.";
 			else
-				$resp['msg'] = " Dorm successfully updated.";
+				$resp['msg'] = " Đã cập nhật ký túc xá thành công.";
 			
 		}else{
 			$resp['status'] = 'failed';
@@ -101,7 +101,7 @@ Class Master extends DBConnection {
 		$check = $this->conn->query("SELECT * FROM `room_list` where `name` = '{$name}' and dorm_id = '{$dorm_id}' and delete_flag = 0 ".($id > 0 ? " and id != '{$id}' " : '')." ")->num_rows;
 		if($check > 0){
 			$resp['status'] = 'failed';
-			$resp['msg'] = 'Room Name already exists on the selected Dorm.';
+			$resp['msg'] = 'Tên phòng đã tồn tại trên Ký túc xá đã chọn.';
 			return json_encode($resp);
 		}
 		if(empty($id)){
@@ -116,9 +116,9 @@ Class Master extends DBConnection {
 			$resp['aid'] = $aid;
 
 			if(empty($id))
-				$resp['msg'] = "New Room successfully saved.";
+				$resp['msg'] = "Phòng mới đã được lưu thành công.";
 			else
-				$resp['msg'] = " Room successfully updated.";
+				$resp['msg'] = " Đã cập nhật phòng thành công.";
 			
 		}else{
 			$resp['status'] = 'failed';
@@ -154,7 +154,7 @@ Class Master extends DBConnection {
 		$check = $this->conn->query("SELECT * FROM `student_list` where `code` = '{$code}' and delete_flag = 0 ".($id > 0 ? " and id != '{$id}' " : '')." ")->num_rows;
 		if($check > 0){
 			$resp['status'] = 'failed';
-			$resp['msg'] = 'Student Code already exists.';
+			$resp['msg'] = 'Mã sinh viên đã tồn tại.';
 			return json_encode($resp);
 		}
 		if(empty($id)){
@@ -169,9 +169,9 @@ Class Master extends DBConnection {
 			$resp['sid'] = $sid;
 
 			if(empty($id))
-				$resp['msg'] = "New Student has been saved successfully.";
+				$resp['msg'] = "Sinh viên mới đã được lưu thành công.";
 			else
-				$resp['msg'] = " Student Details has been updated successfully.";
+				$resp['msg'] = " Chi tiết sinh viên đã được cập nhật thành công.";
 			
 		}else{
 			$resp['status'] = 'failed';
@@ -229,9 +229,9 @@ Class Master extends DBConnection {
 			$resp['aid'] = $aid;
 
 			if(empty($id))
-				$resp['msg'] = "New Account successfully saved.";
+				$resp['msg'] = "Tài khoản mới được lưu thành công.";
 			else
-				$resp['msg'] = " Account successfully updated.";
+				$resp['msg'] = " Tài khoản được cập nhật thành công.";
 			
 		}else{
 			$resp['status'] = 'failed';
@@ -259,7 +259,7 @@ Class Master extends DBConnection {
 		$update = $this->conn->query("UPDATE `accounts` set `status` = '{$status}' where id = '{$id}' ");
 		if($update){
 			$resp['status'] = 'success';
-			$resp['msg'] = 'Rental Status has been updated successfully.';
+			$resp['msg'] = 'Tình trạng cho thuê đã được cập nhật thành công.';
 		}else{
 			$resp['status'] = 'failed';
 			$resp['msg'] = $this->conn->error;
@@ -274,7 +274,7 @@ Class Master extends DBConnection {
 		$check = $this->conn->query("SELECT * FROM `payment_list` where `account_id` = '{$account_id}' and month_of = '{$month_of}' ".($id > 0 ? " and id != '{$id}' " : '')." ")->num_rows;
 		if($check > 0){
 			$resp['status'] = 'failed';
-			$resp['msg'] = 'The Account already have a payment details on the choosen month.';
+			$resp['msg'] = 'Tài khoản đã có chi tiết thanh toán vào tháng đã chọn.';
 			return json_encode($resp);
 		}
 		foreach($_POST as $k =>$v){
@@ -296,9 +296,9 @@ Class Master extends DBConnection {
 			$resp['sid'] = $sid;
 
 			if(empty($id))
-				$resp['msg'] = "New Payment has been saved successfully.";
+				$resp['msg'] = "Thanh toán mới đã được lưu thành công.";
 			else
-				$resp['msg'] = " Payment Details has been updated successfully.";
+				$resp['msg'] = " Chi tiết thanh toán đã được cập nhật thành công.";
 			
 		}else{
 			$resp['status'] = 'failed';
@@ -313,7 +313,7 @@ Class Master extends DBConnection {
 		$del = $this->conn->query("DELETE FROM `payment_list` where id = '{$id}'");
 		if($del){
 			$resp['status'] = 'success';
-			$resp['msg'] = " Payment Details has been deleted successfully.";
+			$resp['msg'] = " Chi tiết thanh toán đã được xóa thành công.";
 		}else{
 			$resp['status'] = 'failed';
 			$resp['error'] = $this->conn->error;

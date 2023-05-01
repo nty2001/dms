@@ -38,14 +38,14 @@ if(isset($_GET['id']) && $_GET['id'] > 0){
 								</div>
 								<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
 									<div class="form-group">
-										<label for="course" class="control-label">Course</label>
+										<label for="course" class="control-label">Khoa</label>
 										<input type="text" name="course" id="course" class="form-control form-control-sm rounded-0" value="<?php echo isset($course) ? $course : ''; ?>"  required/>
 									</div>
 								</div>
 							</div>
 						</fieldset>
 						<fieldset class="border-bottom">
-							<legend>Personal Information</legend>
+							<legend>Thông tin cá nhân</legend>
 							<div class="row">
 								<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
 									<div class="form-group">
@@ -70,7 +70,7 @@ if(isset($_GET['id']) && $_GET['id'] > 0){
 							<div class="row">
 								<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
 									<div class="form-group">
-										<label for="gender" class="control-label">Gender</label>
+										<label for="gender" class="control-label">Giới tính</label>
 										<select type="text" name="gender" id="gender" class="form-control form-control-sm rounded-0" required>
 											<option value="Male" <?= isset($gender) && $gender == 'Male' ? 'selected' : '' ?>>Male</option>
 											<option value="Female" <?= isset($gender) && $gender == 'Female' ? 'selected' : '' ?>>Female</option>
@@ -79,7 +79,7 @@ if(isset($_GET['id']) && $_GET['id'] > 0){
 								</div>
 								<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
 									<div class="form-group">
-										<label for="contact" class="control-label">Contact #</label>
+										<label for="contact" class="control-label">Liên hệ #</label>
 										<input type="text" name="contact" id="contact" class="form-control form-control-sm rounded-0" value="<?php echo isset($contact) ? $contact : ''; ?>"  required/>
 									</div>
 								</div>
@@ -93,30 +93,30 @@ if(isset($_GET['id']) && $_GET['id'] > 0){
 							<div class="row">
 								<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 									<div class="form-group">
-										<label for="address" class="control-label">Address</label>
+										<label for="address" class="control-label">Địa chỉ</label>
 										<textarea rows="3" name="address" id="address" class="form-control form-control-sm rounded-0" required><?= isset($address) ? $address : '' ?></textarea>
 									</div>
 								</div>
 							</div>
 						</fieldset>
 						<fieldset class="border-bottom">
-							<legend>Emergency Details</legend>
+							<legend>Chi tiết khẩn cấp</legend>
 							<div class="row">
 								<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
 									<div class="form-group">
-										<label for="emergency_name" class="control-label">Name</label>
+										<label for="emergency_name" class="control-label">Tên</label>
 										<input type="text" name="emergency_name" id="emergency_name" class="form-control form-control-sm rounded-0" value="<?php echo isset($emergency_name) ? $emergency_name : ''; ?>"  required/>
 									</div>
 								</div>
 								<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
 									<div class="form-group">
-										<label for="emergency_contact" class="control-label">Contact #</label>
+										<label for="emergency_contact" class="control-label">Liên hệ #</label>
 										<input type="text" name="emergency_contact" id="emergency_contact" class="form-control form-control-sm rounded-0" value="<?php echo isset($emergency_contact) ? $emergency_contact : ''; ?>"  required/>
 									</div>
 								</div>
 								<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
 									<div class="form-group">
-										<label for="emergency_relation" class="control-label">Relation</label>
+										<label for="emergency_relation" class="control-label">Mối quan hệ</label>
 										<input type="text" name="emergency_relation" id="emergency_relation" class="form-control form-control-sm rounded-0" value="<?php echo isset($emergency_relation) ? $emergency_relation : ''; ?>"  required/>
 									</div>
 								</div>
@@ -124,7 +124,7 @@ if(isset($_GET['id']) && $_GET['id'] > 0){
 							<div class="row">
 								<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 									<div class="form-group">
-										<label for="emergency_address" class="control-label">Address</label>
+										<label for="emergency_address" class="control-label">Địa chỉ</label>
 										<textarea rows="3" name="emergency_address" id="emergency_address" class="form-control form-control-sm rounded-0" required><?= isset($emergency_address) ? $emergency_address : '' ?></textarea>
 									</div>
 								</div>
@@ -133,7 +133,7 @@ if(isset($_GET['id']) && $_GET['id'] > 0){
 						<div class="row">
 							<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
 								<div class="form-group">
-									<label for="status" class="control-label">Status</label>
+									<label for="status" class="control-label">Trạng thái</label>
 									<select name="status" id="status" class="form-control form-control-sm rounded-0" required>
 										<option value="1" <?php echo isset($status) && $status == 1 ? 'selected' : '' ?>>Hoạt động</option>
 										<option value="0" <?php echo isset($status) && $status == 0 ? 'selected' : '' ?>>Không hoạt động</option>
@@ -145,8 +145,8 @@ if(isset($_GET['id']) && $_GET['id'] > 0){
 				</div>
 			</div>	
 			<div class="card-footer py-1 text-center">
-				<button class="btn btn btn-flat btn-primary btn-sm" form="student-form"><i class="fa fa-save"></i> Save</button>
-				<a class="btn btn btn-flat btn-light bg-gradient-light border text-dark btn-sm" href="./?page=students"><i class="fa fa-angle-left"></i> Cancel</a>
+				<button class="btn btn btn-flat btn-primary btn-sm" form="student-form"><i class="fa fa-save"></i> Lưu</button>
+				<a class="btn btn btn-flat btn-light bg-gradient-light border text-dark btn-sm" href="./?page=students"><i class="fa fa-angle-left"></i> Hủy bỏ</a>
 			</div>
 		</div>	
 	</div>	
@@ -170,7 +170,7 @@ if(isset($_GET['id']) && $_GET['id'] > 0){
                 dataType: 'json',
 				error:err=>{
 					console.log(err)
-					alert_toast("An error occured",'error');
+					alert_toast("Đã xảy ra lỗi",'error');
 					end_loader();
 				},
 				success:function(resp){
@@ -184,7 +184,7 @@ if(isset($_GET['id']) && $_GET['id'] > 0){
                             $("html, body, .modal").scrollTop(0)
                             end_loader()
                     }else{
-						alert_toast("An error occured",'error');
+						alert_toast("Đã xảy ra lỗi",'error');
 						end_loader();
                         console.log(resp)
 					}

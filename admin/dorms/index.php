@@ -74,16 +74,16 @@
 <script>
 	$(document).ready(function(){
 		$('.delete_data').click(function(){
-			_conf("Are you sure to delete this Dorm permanently?","delete_dorm",[$(this).attr('data-id')])
+			_conf("Bạn có chắc chắn xóa khu kí túc này vĩnh viễn không?","delete_dorm",[$(this).attr('data-id')])
 		})
 		$('#create_new').click(function(){
-			uni_modal("<i class='fa fa-plus'></i> Add New Dorm","dorms/manage_dorm.php")
+			uni_modal("<i class='fa fa-plus'></i> Thêm ký túc xá mới","dorms/manage_dorm.php")
 		})
 		$('.view_data').click(function(){
-			uni_modal("<i class='fa fa-bars'></i> Dorm Details","dorms/view_dorm.php?id="+$(this).attr('data-id'))
+			uni_modal("<i class='fa fa-bars'></i>Chi tiết ký túc xá","dorms/view_dorm.php?id="+$(this).attr('data-id'))
 		})
 		$('.edit_data').click(function(){
-			uni_modal("<i class='fa fa-edit'></i> Update Dorm Details","dorms/manage_dorm.php?id="+$(this).attr('data-id'))
+			uni_modal("<i class='fa fa-edit'></i> Cập nhật chi tiết ký túc xá","dorms/manage_dorm.php?id="+$(this).attr('data-id'))
 		})
 		$('.table').dataTable({
 			columnDefs: [
@@ -102,14 +102,14 @@
 			dataType:"json",
 			error:err=>{
 				console.log(err)
-				alert_toast("An error occured.",'error');
+				alert_toast("Đã xảy ra lỗi.",'error');
 				end_loader();
 			},
 			success:function(resp){
 				if(typeof resp== 'object' && resp.status == 'success'){
 					location.reload();
 				}else{
-					alert_toast("An error occured.",'error');
+					alert_toast("Đã xảy ra lỗi.",'error');
 					end_loader();
 				}
 			}
